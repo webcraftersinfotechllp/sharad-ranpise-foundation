@@ -1,0 +1,378 @@
+{% extends 'base.html' %}
+
+{% block title %}Donate | Sharad Ranpise Foundation{% endblock %}
+
+{% block content %}
+<section class="donate-page-wrapper" style="background-color: #f8fafc; padding: 40px 0; min-height: 85vh; display: flex; align-items: center;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto;">
+    
+    {% if donor_message %}
+    <div class="donation-success" style="background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; max-width: 600px; margin: 0 auto;">
+      <span style="font-size: 48px; color: #10b981;">✓</span>
+      <h2 style="margin-top: 10px;">Thank You for Your Support!</h2>
+      <p>{{ donor_message }}</p>
+      <a class="btn btn-primary" href="{{ url_for('main.home') }}" style="margin-top: 20px; display: inline-block;">Back to Home</a>
+    </div>
+    {% else %}
+
+    <!-- TWO COLUMN SPLIT LAYOUT -->
+    <div class="donate-split-grid" style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center;">
+      
+      <!-- LEFT SIDE: IMPACT & TEXT CONTENT WITH 4 TRUST CARDS -->
+      <div class="donate-info-side">
+        <span style="color: #059669; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">MAKE AN IMPACT</span>
+        <h1 style="font-size: 2.2rem; color: #0f172a; margin: 10px 0 16px; font-weight: 800; line-height: 1.25;">
+          Your Contribution Helps Us Build Better Lives
+        </h1>
+        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+          Every donation supports healthcare access, education for underprivileged children, and community empowerment.
+        </p>
+
+        <!-- TRUST BADGES / HIGHLIGHTS (4 CARDS) -->
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          
+          <!-- CARD 1 -->
+          <div style="display: flex; align-items: flex-start; gap: 12px; background: #ffffff; padding: 12px 16px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <span style="background: #ecfdf5; color: #059669; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 0.85rem;">✓</span>
+            <div>
+              <strong style="color: #1e293b; font-size: 0.88rem; display: block;">100% Transparent</strong>
+              <small style="color: #64748b; font-size: 0.78rem;">Your contribution goes directly to verified community initiatives.</small>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div style="display: flex; align-items: flex-start; gap: 12px; background: #ffffff; padding: 12px 16px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <span style="background: #ecfdf5; color: #059669; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 0.85rem;">🔒</span>
+            <div>
+              <strong style="color: #1e293b; font-size: 0.88rem; display: block;">Secure Payment Gateway</strong>
+              <small style="color: #64748b; font-size: 0.78rem;">Encrypted transactions & official security compliance.</small>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div style="display: flex; align-items: flex-start; gap: 12px; background: #ffffff; padding: 12px 16px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <span style="background: #ecfdf5; color: #059669; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 0.85rem;">📜</span>
+            <div>
+              <strong style="color: #1e293b; font-size: 0.88rem; display: block;">80G Tax Exemption</strong>
+              <small style="color: #64748b; font-size: 0.78rem;">Eligible for tax deduction under Section 80G with valid PAN.</small>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div style="display: flex; align-items: flex-start; gap: 12px; background: #ffffff; padding: 12px 16px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <span style="background: #ecfdf5; color: #059669; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; font-size: 0.85rem;">⚡</span>
+            <div>
+              <strong style="color: #1e293b; font-size: 0.88rem; display: block;">Instant Digital Receipt</strong>
+              <small style="color: #64748b; font-size: 0.78rem;">Get immediate confirmation and official receipt on your email.</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: COMPACT DONATION CARD -->
+      <div class="donation-card" style="background: #ffffff; padding: 28px 32px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #e2e8f0;">
+        
+        <div class="card-header" style="margin-bottom: 20px;">
+          <h2 style="font-size: 1.5rem; color: #0f172a; margin: 0 0 4px; font-weight: 800;">Complete Your Contribution</h2>
+          <p style="color: #64748b; margin: 0; font-size: 0.85rem;">सिर्फ ज़रूरी जानकारी — ताकि donation confirmation भेजी जा सके।</p>
+        </div>
+
+        {% if donor_errors %}
+        <div class="alert alert-error" style="background: #fef2f2; border-left: 4px solid #ef4444; color: #991b1b; padding: 10px; border-radius: 6px; margin-bottom: 16px; font-size: 0.85rem;">
+          <ul style="margin: 0; padding-left: 18px;">
+            {% for error in donor_errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <form method="post" action="{{ url_for('main.donate') }}" id="donation-form" novalidate>
+          
+          <!-- 1. CHOOSE AMOUNT -->
+          <div class="form-section" style="margin-bottom: 18px;">
+            <label style="display: block; font-weight: 600; color: #334155; margin-bottom: 8px; font-size: 0.88rem;">
+              Select Donation Amount <span style="color: #ef4444;">*</span>
+            </label>
+            
+            <div class="amount-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 8px;">
+              {% for amt in [500, 1000, 2500, 5000, 10000] %}
+              <button type="button" class="amt-btn{% if request.form.get('amount', '1000') == amt|string %} active{% endif %}" data-amount="{{ amt }}" style="padding: 8px 4px; border: 1.5px solid #cbd5e1; background: #fff; border-radius: 8px; font-weight: 700; color: #1e293b; cursor: pointer; transition: all 0.2s; font-size: 0.85rem;">
+                ₹{{ "{:,}".format(amt) }}
+              </button>
+              {% endfor %}
+            </div>
+
+            <!-- CUSTOM AMOUNT INPUT -->
+            <div class="custom-amt-wrapper" style="position: relative; display: flex; align-items: center;">
+              <span style="position: absolute; left: 12px; font-weight: 700; color: #64748b; font-size: 0.9rem;">₹</span>
+              <input type="text" id="custom-amount" placeholder="Or enter custom amount" value="{% if request.form.get('amount') not in ['500', '1000', '2500', '5000', '10000'] %}{{ request.form.get('amount', '') }}{% endif %}" style="width: 100%; padding: 8px 12px 8px 28px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; outline: none;">
+            </div>
+            <input type="hidden" id="amount" name="amount" value="{{ request.form.get('amount', '1000') }}" required>
+            <small class="error-msg" id="amount-error" style="color: #ef4444; font-size: 0.78rem; display: block; margin-top: 2px;"></small>
+          </div>
+
+          <!-- 2. DONATION PURPOSE -->
+          <div class="form-group" style="margin-bottom: 18px;">
+            <label for="purpose" style="display: block; font-weight: 600; color: #334155; margin-bottom: 6px; font-size: 0.88rem;">
+              Purpose of Donation <span style="color: #ef4444;">*</span>
+            </label>
+            <select id="purpose" name="purpose" style="width: 100%; padding: 9px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; color: #1e293b; background: #fff; outline: none; cursor: pointer;" required>
+              <option value="General Support" {% if not request.form.get('purpose') or request.form.get('purpose') == 'General Support' %}selected{% endif %}>General Fund (Where needed most)</option>
+              <option value="Education & Awareness" {% if request.form.get('purpose') == 'Education & Awareness' %}selected{% endif %}>Education & Rights Awareness</option>
+              <option value="Healthcare Support" {% if request.form.get('purpose') == 'Healthcare Support' %}selected{% endif %}>Healthcare & Family Care</option>
+              <option value="Livelihood Support" {% if request.form.get('purpose') == 'Livelihood Support' %}selected{% endif %}>Livelihood & Skill Development</option>
+              <option value="Community Development" {% if request.form.get('purpose') == 'Community Development' %}selected{% endif %}>Community Development</option>
+            </select>
+            <small class="error-msg" id="purpose-error" style="color: #ef4444; font-size: 0.78rem; display: block; margin-top: 2px;"></small>
+          </div>
+
+          <!-- 3. PERSONAL DETAILS -->
+          <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+            <div class="form-group">
+              <label for="name" style="display: block; font-weight: 600; color: #334155; margin-bottom: 4px; font-size: 0.85rem;">
+                Full Name <span style="color: #ef4444;">*</span>
+              </label>
+              <input type="text" id="name" name="name" value="{{ request.form.get('name', '') }}" placeholder="Your name" style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;" required>
+              <small class="error-msg" id="name-error" style="color: #ef4444; font-size: 0.78rem; display: block; margin-top: 2px;"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="mobile" style="display: block; font-weight: 600; color: #334155; margin-bottom: 4px; font-size: 0.85rem;">
+                Mobile Number <span style="color: #ef4444;">*</span>
+              </label>
+              <input type="tel" id="mobile" name="mobile" value="{{ request.form.get('mobile', '') }}" placeholder="10-digit number" maxlength="10" style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;" required>
+              <small class="error-msg" id="mobile-error" style="color: #ef4444; font-size: 0.78rem; display: block; margin-top: 2px;"></small>
+            </div>
+          </div>
+
+          <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+            <div class="form-group">
+              <label for="email" style="display: block; font-weight: 600; color: #334155; margin-bottom: 4px; font-size: 0.85rem;">
+                Email Address <span style="color: #ef4444;">*</span>
+              </label>
+              <input type="email" id="email" name="email" value="{{ request.form.get('email', '') }}" placeholder="you@example.com" style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem;" required>
+              <small class="error-msg" id="email-error" style="color: #ef4444; font-size: 0.78rem; display: block; margin-top: 2px;"></small>
+            </div>
+
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <label for="pan" style="font-weight: 600; color: #334155; font-size: 0.85rem;">PAN</label>
+                <span style="font-size: 0.75rem; color: #94a3b8;">Optional</span>
+              </div>
+              <input type="text" id="pan" name="pan" value="{{ request.form.get('pan', '') }}" placeholder="Tax receipt" maxlength="10" style="width: 100%; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 0.88rem; text-transform: uppercase;">
+              <small class="error-msg" id="pan-error" style="color: #ef4444; font-size: 0.78rem; display: block; margin-top: 2px;"></small>
+            </div>
+          </div>
+
+          <!-- SUBMIT SECTION -->
+          <div class="form-footer" style="display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid #f1f5f9;">
+            <div>
+              <span style="display: block; font-size: 0.75rem; color: #64748b; font-weight: 600;">Donation amount</span>
+              <strong id="display-total" style="font-size: 1.5rem; color: #0f172a; font-weight: 800;">₹1,000</strong>
+            </div>
+
+            <button type="submit" style="background: #059669; color: #ffffff; border: none; padding: 12px 20px; border-radius: 10px; font-size: 0.92rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+              Proceed to Pay →
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- STYLES & STRICT VALIDATIONS -->
+<style>
+  .amt-btn.active {
+    border-color: #059669 !important;
+    background-color: #ecfdf5 !important;
+    color: #059669 !important;
+  }
+  
+  @media (max-width: 992px) {
+    .donate-split-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+  }
+  @media (max-width: 576px) {
+    .amount-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .form-row { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const amtBtns = document.querySelectorAll('.amt-btn');
+  const customAmt = document.getElementById('custom-amount');
+  const amountHidden = document.getElementById('amount');
+  const displayTotal = document.getElementById('display-total');
+  const form = document.getElementById('donation-form');
+
+  const nameInput = document.getElementById('name');
+  const mobileInput = document.getElementById('mobile');
+  const emailInput = document.getElementById('email');
+  const panInput = document.getElementById('pan');
+
+  // 1. STRICT INPUT RESTRICTION - Full Name (Letters & Spaces Only)
+  nameInput.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+  });
+
+  // 2. STRICT INPUT RESTRICTION - Mobile & Custom Amount (Digits Only)
+  mobileInput.addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g, '');
+  });
+
+  customAmt.addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g, '');
+    amtBtns.forEach(b => b.classList.remove('active'));
+    updateDisplay(this.value);
+  });
+
+  // 3. Amount Buttons Toggle
+  amtBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      amtBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      customAmt.value = '';
+      updateDisplay(this.getAttribute('data-amount'));
+    });
+  });
+
+  function updateDisplay(val) {
+    amountHidden.value = val;
+    displayTotal.textContent = '₹' + (val && !isNaN(val) ? parseInt(val).toLocaleString('en-IN') : '0');
+  }
+
+  // 4. Form Submit Validation
+  form.addEventListener('submit', function(e) {
+    let valid = true;
+    document.querySelectorAll('.error-msg').forEach(el => el.textContent = '');
+
+    if (!amountHidden.value || parseInt(amountHidden.value) < 1) {
+      document.getElementById('amount-error').textContent = 'Please select or enter an amount.';
+      valid = false;
+    }
+
+    const name = nameInput.value.trim();
+    if (!name) {
+      document.getElementById('name-error').textContent = 'Enter a name using letters only.';
+      valid = false;
+    }
+
+    const mobile = mobileInput.value.trim();
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+      document.getElementById('mobile-error').textContent = 'Enter exactly 10 digits starting with 6, 7, 8, or 9.';
+      valid = false;
+    }
+
+    // MANDATORY EMAIL VALIDATION
+    const emailVal = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailVal) {
+      document.getElementById('email-error').textContent = 'Please enter your email address.';
+      valid = false;
+    } else if (!emailRegex.test(emailVal)) {
+      document.getElementById('email-error').textContent = 'Please enter a valid email address.';
+      valid = false;
+    }
+
+    // OPTIONAL PAN VALIDATION
+    const panVal = panInput.value.trim().toUpperCase();
+    if (panVal && !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(panVal)) {
+      document.getElementById('pan-error').textContent = 'Enter valid 10-char PAN (e.g. ABCDE1234F).';
+      valid = false;
+    }
+
+    if (!valid) e.preventDefault();
+  });
+});
+</script>
+
+{% if checkout_popup %}
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Razorpay Checkout SDK Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  var options = {
+    "key": "{{ razorpay_key_id }}",
+    "amount": "{{ amount }}",
+    "currency": "INR",
+    "name": "SHARAD RANPISE FOUNDATION",
+    "description": "Donation Support",
+    "order_id": "{{ razorpay_order_id }}",
+    "handler": function (response) {
+      // 1. Loading Pop-up दाखवा (Backend ईमेल पाठवेपर्यंत)
+      Swal.fire({
+        title: 'Processing Donation...',
+        text: 'Verifying payment and sending 80G tax receipt to your email.',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+
+      // 2. Payment Verification Route ला AJAX Request पाठवणे
+      fetch("{{ url_for('main.payment_verify') }}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_signature: response.razorpay_signature
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.status === 'success') {
+          // 3. Email Send झाल्यावर SweetAlert दाखवणे
+          Swal.fire({
+            title: 'Donation Successful!',
+            text: 'Thank you for your generous support of ₹{{ (amount / 100)|int }}. An official 80G tax receipt has been sent to your email address.',
+            icon: 'success',
+            confirmButtonText: 'Go to Home',
+            confirmButtonColor: '#059669',
+            allowOutsideClick: false
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = "{{ url_for('main.home') }}";
+            }
+          });
+        } else {
+          Swal.fire({
+            title: 'Payment Failed',
+            text: 'Payment verification failed. Please contact support.',
+            icon: 'error',
+            confirmButtonColor: '#ef4444'
+          });
+        }
+      })
+      .catch(err => {
+        Swal.fire({
+          title: 'Error',
+          text: 'Something went wrong while verifying payment.',
+          icon: 'error'
+        });
+      });
+    },
+    "prefill": {
+      "name": "{{ donor_name }}",
+      "email": "{{ email }}",
+      "contact": "{{ mobile }}"
+    },
+    "theme": {
+      "color": "#059669"
+    }
+  };
+  
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+</script>
+{% endif %}
+
+{% endblock %}

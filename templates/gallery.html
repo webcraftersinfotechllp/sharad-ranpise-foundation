@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block title %}Gallery | Sharad Ranpise Foundation{%
+endblock %} {% block meta_description %}Browse gallery highlights from community
+programmes, awareness drives, education support, health outreach, and women
+empowerment initiatives.{% endblock %} {% block og_title %}Gallery of Sharad
+Ranpise Foundation{% endblock %} {% block canonical_url
+%}https://example.com/gallery{% endblock %} {% block content %}
+<section class="page-hero">
+  <div class="container text-center">
+    <p class="section-kicker">Gallery</p>
+    <h1>Stories of courage, care, and community action</h1>
+    <p>
+      These placeholder images represent our programmes and field engagement
+      experiences, ready to be replaced with gallery imagery as the foundation
+      grows.
+    </p>
+  </div>
+</section>
+
+<section class="page-wrapper">
+  <div class="container">
+    <div class="gallery-grid">
+      {% for item in gallery_items %}
+      <div class="gallery-card">
+        <img
+          src="{{ url_for('static', filename=item.image) }}"
+          alt="{{ item.title }}"
+          class="gallery-img"
+          loading="lazy"
+        />
+
+        <div class="gallery-overlay">
+          <p class="category">{{ item.category }} • {{ item.title }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div
+  class="lightbox"
+  aria-label="Image preview"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="lightbox-content">
+    <button
+      type="button"
+      class="lightbox-close"
+      aria-label="Close image preview"
+    >
+      ×
+    </button>
+    <img src="" alt="Expanded gallery preview" />
+  </div>
+</div>
+{% endblock %}

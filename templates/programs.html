@@ -1,0 +1,193 @@
+{% extends 'base.html' %} {% block title %}Our Programs | Swargiya Amdar Shri
+Sharad Ranpise Foundation{% endblock %} {% block meta_description %}Explore our
+programmes in educational technology, women economic empowerment, healthcare,
+and community welfare.{% endblock %} {% block og_title %}Programs of Sharad
+Ranpise Foundation{% endblock %} {% block canonical_url
+%}https://example.com/programs{% endblock %} {% block content %}
+<section class="page-hero">
+  <div class="container text-center">
+    <p class="section-kicker">Our Programs</p>
+    <h1>People-focused programmes for lasting community growth</h1>
+    <p>
+      Our initiatives are structured across modern educational tech, women
+      economic empowerment, healthcare, and handicapped welfare to deliver
+      measurable impact.
+    </p>
+  </div>
+</section>
+
+<section class="unique-programs-wrapper">
+  <div class="container">
+    <!-- Program Item 1 (Image Left, Content Right) -->
+    <div class="program-showcase-row">
+      <div class="program-img-box">
+        <img
+          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=900&auto=format&fit=crop"
+          alt="Educational Technology & Skills"
+        />
+        <div class="program-tag-badge">01 • Ed-Tech</div>
+      </div>
+      <div class="program-info-box">
+        <h3>Educational Technology & Skills</h3>
+        <p class="program-desc">
+          Envisioning and developing modern ed-tech products, research support,
+          and quality training initiatives to bridge learning gaps for future
+          skill development.
+        </p>
+        <div class="program-details-grid">
+          <div class="detail-block">
+            <h4>Objectives</h4>
+            <ul>
+              <li>Deploy modern digital learning tools</li>
+              <li>Provide research and technical support</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Who We Serve</h4>
+            <p>Students, youth, and aspiring tech learners across regions.</p>
+          </div>
+        </div>
+        <a href="{{ url_for('main.contact') }}" class="program-action-btn"
+          >Get in Touch &rarr;</a
+        >
+      </div>
+    </div>
+
+    <!-- Program Item 2 (Content Left, Image Right - Reversed) -->
+    <div class="program-showcase-row reverse">
+      <div class="program-img-box">
+        <img
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=900&auto=format&fit=crop"
+          alt="Women Economic Empowerment"
+        />
+        <div class="program-tag-badge">02 • Empowerment</div>
+      </div>
+      <div class="program-info-box">
+        <h3>Women Economic Empowerment</h3>
+        <p class="program-desc">
+          Providing vocational training, enhancing craft skills, and creating
+          dedicated platforms for women to showcase their talent and achieve
+          financial independence.
+        </p>
+        <div class="program-details-grid">
+          <div class="detail-block">
+            <h4>Objectives</h4>
+            <ul>
+              <li>Vocational and artisanal skill workshops</li>
+              <li>Market linkage and self-employment platforms</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Who We Serve</h4>
+            <p>Women entrepreneurs, artisans, and self-help groups.</p>
+          </div>
+        </div>
+        <a href="{{ url_for('main.contact') }}" class="program-action-btn"
+          >Get in Touch &rarr;</a
+        >
+      </div>
+    </div>
+
+    <!-- Program Item 3 (Image Left, Content Right) -->
+    <div class="program-showcase-row">
+      <div class="program-img-box">
+        <img
+          src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=900&auto=format&fit=crop"
+          alt="Healthcare & Medical Support"
+        />
+        <div class="program-tag-badge">03 • Healthcare</div>
+      </div>
+      <div class="program-info-box">
+        <h3>Healthcare & Medical Support</h3>
+        <p class="program-desc">
+          Promoting community well-being, organizing health checkup camps,
+          building sanitation awareness, and extending timely emergency medical
+          assistance.
+        </p>
+        <div class="program-details-grid">
+          <div class="detail-block">
+            <h4>Objectives</h4>
+            <ul>
+              <li>Community health awareness & checkup camps</li>
+              <li>Emergency medical relief assistance</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Who We Serve</h4>
+            <p>
+              Underprivileged families, senior citizens, and local residents.
+            </p>
+          </div>
+        </div>
+        <a href="{{ url_for('main.contact') }}" class="program-action-btn"
+          >Get in Touch &rarr;</a
+        >
+      </div>
+    </div>
+
+    <!-- Program Item 4 (Content Left, Image Right - Reversed) -->
+    <div class="program-showcase-row reverse">
+      <div class="program-img-box">
+        <img
+          src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=900&auto=format&fit=crop"
+          alt="Handicapped Rehabilitation"
+        />
+        <div class="program-tag-badge">04 • Welfare</div>
+      </div>
+      <div class="program-info-box">
+        <h3>Handicapped Rehabilitation</h3>
+        <p class="program-desc">
+          Promoting self-employment ventures, technical skill upgradation, and
+          economic rehabilitation for the comprehensive welfare of handicapped
+          individuals.
+        </p>
+        <div class="program-details-grid">
+          <div class="detail-block">
+            <h4>Objectives</h4>
+            <ul>
+              <li>Skill upgradation for independent living</li>
+              <li>Promoting self-employment and micro-ventures</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Who We Serve</h4>
+            <p>Handicapped individuals and deserving community members.</p>
+          </div>
+        </div>
+        <a href="{{ url_for('main.contact') }}" class="program-action-btn"
+          >Get in Touch &rarr;</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Secondary Extended Focus Areas Banner -->
+<section class="extended-initiatives-section">
+  <div class="container">
+    <div class="extended-box">
+      <span class="extended-kicker">EXTENDED COMMUNITY INITIATIVES</span>
+      <h3>Other Secondary Focus Areas</h3>
+      <p>
+        In addition to our primary sectors, Swargiya Amdar Shri Sharad Ranpise
+        Foundation actively supports environment protection, skill development,
+        disaster relief, rights awareness, and elderly care through targeted
+        grassroots drives.
+      </p>
+      <div class="extended-tags-wrap">
+        <span class="e-tag">🌱 Environment Protection</span>
+        <span class="e-tag">🛠️ Skill Development</span>
+        <span class="e-tag">📦 Disaster Relief</span>
+        <span class="e-tag">⚖️ Rights &amp; Awareness</span>
+        <span class="e-tag">👴 Elderly Care</span>
+        <span class="e-tag">⚖️ Civic Awareness</span>
+      </div>
+      <div class="extended-cta">
+        <a href="{{ url_for('main.donate') }}" class="btn-support-initiative"
+          >♥ &nbsp;SUPPORT OUR INITIATIVES</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

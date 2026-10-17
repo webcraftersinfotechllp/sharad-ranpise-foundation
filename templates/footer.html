@@ -1,0 +1,108 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand footer-brand">
+        <img
+          src="{{ url_for('static', filename='images/logo/homerights-logo.svg') }}"
+          style="height: 65px; width: auto"
+        />
+        <span class="brand-text">
+          <strong
+            style="color: #fd9801 !important; display: block; line-height: 1.3"
+            >SWARGIYA AMDAR SHRI SHARAD RANPISE FOUNDATION</strong
+          >
+        </span>
+      </div>
+      <p>
+        We work with communities to build dignity, opportunity, and empowerment
+        across educational technology, women economic empowerment, healthcare,
+        and handicapped welfare.
+      </p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+        <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+        <li><a href="{{ url_for('main.programs_page') }}">Programs</a></li>
+        <li><a href="{{ url_for('main.gallery') }}">Gallery</a></li>
+        <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Support Our Work</h4>
+      <ul class="footer-links">
+        <li>
+          <a href="{{ url_for('main.donate') }}" class="donation-link">
+            Donate
+          </a>
+        </li>
+        <li><a href="{{ url_for('main.contact') }}">Volunteer</a></li>
+        <li><a href="{{ url_for('main.contact') }}">Partner With Us</a></li>
+        <li><a href="{{ url_for('main.contact') }}">CSR Collaboration</a></li>
+        <li><a href="{{ url_for('main.faq') }}">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact Us</h4>
+      <ul class="footer-links contact-links">
+        <li style="white-space: nowrap">
+          <strong>Phone:</strong>
+          <a
+            href="tel:+918108369292"
+            class="text-decoration-none text-muted me-1"
+            style="font-size: 0.9rem"
+            >+91 81083 69292</a
+          >,
+          <a
+            href="tel:+919325771177"
+            class="text-decoration-none text-muted"
+            style="font-size: 0.9rem"
+            >+91 9325771177</a
+          >
+        </li>
+        <li style="white-space: nowrap">
+          <strong>Email:</strong>
+          <a href="mailto:info@sharadranpisefoundation.in"
+            >info@sharadranpisefoundation.in</a
+          >
+        </li>
+        <li>
+          <strong>Address:</strong>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Parmar+Trade+Center+Sadhuvaswani+Chouk+Pune+Station+Pune+411001"
+            target="_blank"
+            >Parmar Trade Center, F-2, Ground Floor, Sadhuvaswani Chouk, Pune
+            Station, Pune - 411001.</a
+          >
+        </li>
+      </ul>
+
+      <!-- Social Media Icons -->
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>
+        © {{ current_year }} Swargiya Amdar Shri Sharad Ranpise Foundation. All
+        Rights Reserved.
+      </p>
+      <div class="legal-links">
+        <a href="{{ url_for('main.privacy_policy') }}">Privacy Policy</a>
+        <a href="{{ url_for('main.terms') }}">Terms &amp; Conditions</a>
+        <a href="{{ url_for('main.donation_policy') }}">Donation Policy</a>
+        <a href="{{ url_for('main.refund_policy') }}">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

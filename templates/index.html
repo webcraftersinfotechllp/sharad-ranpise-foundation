@@ -1,0 +1,454 @@
+{% extends 'base.html' %} {% block title %}Home | Sharad Ranpise Foundation{%
+endblock %} {% block meta_description %}Sharad Ranpise Foundation works with
+communities to create meaningful social change through rights awareness,
+education, livelihood support, healthcare, and social empowerment.{% endblock %}
+{% block og_title %}Sharad Ranpise Foundation{% endblock %} {% block
+og_description %}Building dignity, opportunity and hope for every community.{%
+endblock %} {% block canonical_url %}https://example.com/{% endblock %} {% block
+content %}
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content left-aligned">
+    <p class="section-kicker" style="color: #e8b85a">
+      • Education • Technology • Healthcare <br />• Social Welfare
+    </p>
+    <h1>
+      स्वर्गीय आमदार श्री. शरद<br />
+      रणपिसे फाऊंडेशन
+    </h1>
+    <p>
+      Swargiya Amdar Shri Sharad Ranpise Foundation works to create lasting
+      change through educational technology, women empowerment, comprehensive
+      healthcare, and social welfare programs.
+    </p>
+    <div class="hero-actions">
+      <a
+        href="{{ url_for('main.donate') }}"
+        class="btn btn-primary donation-link"
+      >
+        <svg
+          class="donation-heart"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          ></path>
+        </svg>
+        Donate Now
+      </a>
+      <a href="{{ url_for('main.programs_page') }}" class="btn btn-secondary"
+        >Our Programs</a
+      >
+    </div>
+  </div>
+</section>
+
+<section class="section about-section">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <p class="section-kicker">About Us</p>
+      <h2 class="section-title">Creating Change. Empowering Communities.</h2>
+      <p>
+        SWARGIYA AMDAR SHRI SHARAD RANPISE FOUNDATION is dedicated to driving
+        grassroots change across Educational Technology, Women Economic
+        Empowerment, Comprehensive Healthcare, and Social Welfare. We work
+        directly with local communities to implement impactful programs and
+        events that create long-term social growth.
+      </p>
+      <p>
+        Lead by experienced visionaries Mr. Yash Jayant Sarvade and Ms. Priyanka
+        Ranpise, Sharad Ranpise Foundation is committed to fostering equitable
+        community growth, protecting fundamental rights, and driving sustainable
+        grassroots development across all sectors.
+      </p>
+      <a href="{{ url_for('main.donate') }}" class="btn btn-primary"
+        >Support Our Mission</a
+      >
+    </div>
+    <div class="directors-container">
+      <!-- Director 1 -->
+      <div class="director-box">
+        <div class="director-img-wrapper">
+          <img
+            src="{{ url_for('static', filename='images/about/about-1.svg') }}"
+            alt="Mr. Yash Jayant Sarvade"
+          />
+        </div>
+        <br />
+        <div class="director-content text-center">
+          <h5
+            style="
+              font-family: &quot;Poppins&quot;, sans-serif;
+              font-weight: 400;
+              font-size: 0.95rem;
+              color: #212529;
+            "
+          >
+            Mr. Yash Jayant Sarvade
+          </h5>
+          <p class="designation mb-0">Director</p>
+        </div>
+      </div>
+
+      <!-- Director 2 -->
+      <div class="director-box">
+        <div class="director-img-wrapper">
+          <img
+            src="{{ url_for('static', filename='images/about/about-1.svg') }}"
+            alt="Ms. Priyanka Ranpise"
+          />
+        </div>
+        <br />
+        <div class="director-content text-center">
+          <h5
+            style="
+              font-family: &quot;Poppins&quot;, sans-serif;
+              font-weight: 400;
+              font-size: 0.95rem;
+              color: #212529;
+            "
+          >
+            Ms. Priyanka Ranpise
+          </h5>
+          <p class="designation mb-0">Director</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section unique-projects-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 60px">
+      <p class="section-kicker">Featured Projects</p>
+      <h2 class="section-title">Grounded initiatives for visible change</h2>
+    </div>
+
+    <div class="split-projects-wrapper">
+      <!-- Project 1 (Image Left, Text Right) -->
+      <div class="split-project-row">
+        <div class="split-image">
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop"
+            alt="Educational Technology"
+          />
+        </div>
+        <div class="split-content">
+          <span class="project-tag">Education & Technology</span>
+          <h3>Digital Classrooms & Skill Training</h3>
+          <p>
+            Providing modern educational technology, research support, and
+            digital tools to empower students in rural and urban sectors.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 2 (Text Left, Image Right) -->
+      <div class="split-project-row reverse">
+        <div class="split-image">
+          <img
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+            alt="Women Empowerment"
+          />
+        </div>
+        <div class="split-content">
+          <span class="project-tag">Women Empowerment</span>
+          <h3>Vocational & Craft Training Hubs</h3>
+          <p>
+            Enhancing craft skills and creating dedicated economic platforms for
+            women to showcase their talent and achieve financial independence.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 3 (Image Left, Text Right) -->
+      <div class="split-project-row">
+        <div class="split-image">
+          <img
+            src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=800&auto=format&fit=crop"
+            alt="Healthcare"
+          />
+        </div>
+        <div class="split-content">
+          <span class="project-tag">Healthcare</span>
+          <h3>Community Health & Medical Camps</h3>
+          <p>
+            Extending timely emergency healthcare assistance, sanitation
+            awareness, and medical support drives for deserving communities.
+          </p>
+        </div>
+      </div>
+
+      <!-- Project 4 (Text Left, Image Right) -->
+      <div class="split-project-row reverse">
+        <div class="split-image">
+          <img
+            src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=800&auto=format&fit=crop"
+            alt="Handicapped Welfare"
+          />
+        </div>
+        <div class="split-content">
+          <span class="project-tag">Social Welfare</span>
+          <h3>Rehabilitation & Self-Employment</h3>
+          <p>
+            Promoting technical skill upgradation and self-employment ventures
+            for the economic rehabilitation of handicapped individuals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: #fff">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 42px">
+      <p class="section-kicker">Our Approach</p>
+      <h2 class="section-title">From Need to Action</h2>
+    </div>
+
+    <div class="approach-grid">
+      <div class="info-card">
+        <div class="step-number">01</div>
+        <h3>Identify Needs</h3>
+        <p>
+          We assess ground realities across educational technology, women
+          economic empowerment, healthcare, and handicapped welfare to
+          understand community challenges.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="step-number">02</div>
+        <h3>Plan & Strategize</h3>
+        <p>
+          We design practical programs and initiatives tailored to local
+          community needs with sustainable social impact in mind.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="step-number">03</div>
+        <h3>On-Ground Action</h3>
+        <p>
+          Our dedicated teams and partners execute grassroots activities,
+          awareness drives, training sessions, and direct support programs.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="step-number">04</div>
+        <h3>Measure Impact</h3>
+        <p>
+          We monitor progress, evaluate real-world outcomes, and continually
+          refine our programs for long-term social benefit and development.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section impact-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 42px">
+      <p class="section-kicker">Impact</p>
+      <h2 class="section-title">Progress built on partnership and trust</h2>
+    </div>
+
+    <div class="impact-grid">
+      {% for stat in impact_stats %}
+      <div class="impact-card">
+        <div
+          class="counter"
+          data-target="{{ stat.value }}"
+          data-suffix="{{ stat.suffix }}"
+        >
+          0{{ stat.suffix }}
+        </div>
+        <p>{{ stat.label }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="foundation-initiatives-section">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="badge-kicker">Our Programs</span>
+      <h2 class="title-main">Driving Meaningful Impact Across Communities</h2>
+      <div class="header-line"></div>
+    </div>
+
+    <div class="initiatives-grid">
+      <!-- Initiative 1 -->
+      <div class="initiative-card">
+        <div class="card-icon-box">💻</div>
+        <div class="card-body">
+          <h3>Educational Technology & Skills</h3>
+          <p>
+            Envisioning and developing modern ed-tech products, research
+            support, and quality training initiatives for future skill
+            development.
+          </p>
+          <a href="{{ url_for('main.programs_page') }}" class="explore-link"
+            >Explore Initiative &rarr;</a
+          >
+        </div>
+      </div>
+
+      <!-- Initiative 2 -->
+      <div class="initiative-card">
+        <div class="card-icon-box">👩‍💼</div>
+        <div class="card-body">
+          <h3>Women Economic Empowerment</h3>
+          <p>
+            Providing vocational training, enhancing craft skills, and creating
+            dedicated platforms for women to showcase and earn from their
+            talent.
+          </p>
+          <a href="{{ url_for('main.programs_page') }}" class="explore-link"
+            >Explore Initiative &rarr;</a
+          >
+        </div>
+      </div>
+
+      <!-- Initiative 3 -->
+      <div class="initiative-card">
+        <div class="card-icon-box">🏥</div>
+        <div class="card-body">
+          <h3>Healthcare & Medical Support</h3>
+          <p>
+            Promoting community well-being, organizing health camps, building
+            sanitation facilities, and extending timely emergency medical
+            assistance.
+          </p>
+          <a href="{{ url_for('main.programs_page') }}" class="explore-link"
+            >Explore Initiative &rarr;</a
+          >
+        </div>
+      </div>
+
+      <!-- Initiative 4 -->
+      <div class="initiative-card">
+        <div class="card-icon-box">🤝</div>
+        <div class="card-body">
+          <h3>Handicapped Rehabilitation</h3>
+          <p>
+            Promoting self-employment ventures, technical skill upgradation, and
+            economic rehabilitation for the welfare of handicapped individuals.
+          </p>
+          <a href="{{ url_for('main.programs_page') }}" class="explore-link"
+            >Explore Initiative &rarr;</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="foundation-get-involved">
+  <div class="container">
+    <div class="section-header-centered">
+      <span class="badge-kicker">Get Involved</span>
+      <h2 class="title-main">Be a Part of the Change</h2>
+      <div class="header-line"></div>
+    </div>
+
+    <div class="involve-grid">
+      <!-- Option 1: Volunteer -->
+      <div class="involve-card">
+        <div class="card-icon-wrapper">🤝</div>
+        <div class="card-content">
+          <h3>Become a Volunteer</h3>
+          <p>
+            Join our grassroots missions on-ground, participate in educational
+            and healthcare drives, and dedicate your time to uplift local
+            communities.
+          </p>
+          <a href="{{ url_for('main.contact') }}" class="action-btn"
+            >Join Hands &rarr;</a
+          >
+        </div>
+      </div>
+
+      <!-- Option 2: Donate -->
+      <div class="involve-card featured">
+        <div class="card-icon-wrapper">❤️</div>
+        <div class="card-content">
+          <h3>Support & Donate</h3>
+          <p>
+            Contribute directly to our authorized social welfare programs, women
+            economic empowerment projects, and emergency medical relief funds.
+          </p>
+          <a href="{{ url_for('main.donate') }}" class="action-btn highlight"
+            >Contribute Now &rarr;</a
+          >
+        </div>
+      </div>
+
+      <!-- Option 3: Partner -->
+      <div class="involve-card">
+        <div class="card-icon-wrapper">🌐</div>
+        <div class="card-content">
+          <h3>Collaborate & Partner</h3>
+          <p>
+            Partner with Swargiya Amdar Shri Sharad Ranpise Foundation as an
+            organization, trust, or corporate entity to drive large-scale
+            societal reforms.
+          </p>
+          <a href="{{ url_for('main.contact') }}" class="action-btn"
+            >Partner With Us &rarr;</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section
+  class="section cta-section"
+  style="background-color: var(--light) !important"
+>
+  <div class="container">
+    <div
+      class="cta-box"
+      style="
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+      "
+    >
+      <p class="section-kicker" style="color: var(--secondary) !important">
+        SUPPORT THE MISSION
+      </p>
+      <h2 style="color: var(--primary-dark) !important">
+        Together, We Can Create Lasting Change.
+      </h2>
+      <p style="color: var(--muted) !important">
+        Your support can help communities access opportunities, dignity,
+        awareness and essential support.
+      </p>
+      <a
+        href="{{ url_for('main.donate') }}"
+        class="btn btn-primary donation-link"
+        style="
+          background-color: #e65100 !important;
+          color: var(--white) !important;
+        "
+      >
+        <svg
+          class="donation-heart"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          ></path>
+        </svg>
+        Donate Now
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

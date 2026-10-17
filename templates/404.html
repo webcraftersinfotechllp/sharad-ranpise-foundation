@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}Page Not Found | Swargiya Amdar Shri
+Sharad Ranpise Foundation{% endblock %} {% block meta_description %}The page you
+are looking for could not be found on Swargiya Amdar Shri Sharad Ranpise
+Foundation website.{% endblock %} {% block content %}
+<section class="page-hero simple-hero">
+  <div class="container text-center">
+    <p class="section-kicker">404 Error</p>
+    <h1>Page not found</h1>
+    <p>
+      The page you requested could not be found. Please return to the homepage
+      or explore our programmes and initiatives.
+    </p>
+    <a href="{{ url_for('main.home') }}" class="btn btn-primary"
+      >Back to Home</a
+    >
+  </div>
+</section>
+{% endblock %}

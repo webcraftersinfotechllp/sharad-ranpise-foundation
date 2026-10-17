@@ -1,0 +1,420 @@
+{% extends 'base.html' %} {% block title %}Contact Us | Sharad Ranpise
+Foundation{% endblock %} {% block meta_description %}Contact Sharad Ranpise
+Foundation for partnership, volunteering, support, and community enquiries.{%
+endblock %} {% block og_title %}Contact Sharad Ranpise Foundation{% endblock %}
+{% block canonical_url %}https://example.com/contact{% endblock %} {% block
+content %}
+<!-- SWEETALERT2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<section class="page-hero">
+  <div class="container text-center">
+    <p class="section-kicker">Contact Us</p>
+    <h1>We Would Love to Hear From You</h1>
+    <p>
+      Whether you are looking to support, volunteer, partner, or request
+      assistance, our team is always ready to connect with you.
+    </p>
+  </div>
+</section>
+
+<section class="page-wrapper">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- डाव्या बाजूला: माहिती -->
+      <div class="content-card info-card">
+        <p class="section-kicker">Reach Out To Us</p>
+        <h2>Make a Difference Today</h2>
+        <p class="lead-text">
+          Have questions about our initiatives or want to get involved? We're
+          here to help!
+        </p>
+
+        <div class="highlights-list" style="margin: 25px 0">
+          <div class="highlight-item" style="margin-bottom: 15px">
+            <h4>🤝 Community Support</h4>
+            <p style="margin: 5px 0 0 0; font-size: 0.95rem; color: #555">
+              Dedicated assistance for rural development, child welfare,
+              education, civic issues, and animal care.
+            </p>
+          </div>
+          <div class="highlight-item" style="margin-bottom: 15px">
+            <h4>🌱 Partner & Volunteer</h4>
+            <p style="margin: 5px 0 0 0; font-size: 0.95rem; color: #555">
+              Join hands with us to create a meaningful social impact across
+              local communities in India.
+            </p>
+          </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0" />
+
+        <p class="section-kicker">Direct Contact</p>
+        <ul class="list-check" style="list-style: none; padding-left: 0">
+          <li style="margin-bottom: 10px">
+            <strong>📞 Phone:</strong> +91 8108369292 | +91 9325771177
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong>✉️ Email:</strong> info@sharadranpisefoundation.in
+          </li>
+          <li style="margin-bottom: 10px">
+            <strong>📍 Office Address:</strong> Parmar Trade Center, F-2, Ground
+            Floor, Sadhuvaswani Chouk, Pune Station, Pune - 411001.
+          </li>
+        </ul>
+
+        <div class="content-block" style="margin-top: 20px">
+          <iframe
+            title="Map placeholder"
+            src="https://www.google.com/maps?q=New%20Delhi&output=embed"
+            width="100%"
+            height="200"
+            style="border: 0; border-radius: 12px"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- उजव्या बाजूला: फॉर्म -->
+      <div class="content-card form-card">
+        <p class="section-kicker">Send Message</p>
+        <h2>Get in Touch</h2>
+
+        {% if errors or contact_errors %}
+        <div
+          class="alert alert-error"
+          style="
+            color: #991b1b;
+            background: #fef2f2;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border-left: 4px solid #ef4444;
+            margin-bottom: 20px;
+          "
+        >
+          <ul class="list-check" style="margin: 0; padding-left: 18px">
+            {% for error in (errors if errors else contact_errors) %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <form
+          id="contactForm"
+          method="post"
+          action="{{ url_for('main.contact') }}"
+          novalidate
+        >
+          {% if csrf_token %}
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+          {% endif %}
+
+          <div class="form-group" style="margin-bottom: 15px">
+            <label for="name"
+              >Full Name <span style="color: red">*</span></label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              required
+              minlength="3"
+              maxlength="50"
+              placeholder="e.g. Rahul Sharma"
+              value="{{ request.form.get('name', '') }}"
+            />
+            <small
+              class="error-msg"
+              id="nameError"
+              style="
+                color: #ef4444;
+                font-weight: 500;
+                font-size: 0.82rem;
+                margin-top: 4px;
+                display: none;
+              "
+            ></small>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 15px">
+            <label for="email"
+              >Email Address <span style="color: red">*</span></label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              required
+              placeholder="e.g. rahul@example.com"
+              value="{{ request.form.get('email', '') }}"
+            />
+            <small
+              class="error-msg"
+              id="emailError"
+              style="
+                color: #ef4444;
+                font-weight: 500;
+                font-size: 0.82rem;
+                margin-top: 4px;
+                display: none;
+              "
+            ></small>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 15px">
+            <label for="mobile"
+              >Mobile Number <span style="color: red">*</span></label
+            >
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              class="form-control"
+              required
+              placeholder="10-digit mobile number"
+              maxlength="10"
+              value="{{ request.form.get('mobile', '') }}"
+            />
+            <small
+              class="error-msg"
+              id="mobileError"
+              style="
+                color: #ef4444;
+                font-weight: 500;
+                font-size: 0.82rem;
+                margin-top: 4px;
+                display: none;
+              "
+            ></small>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 15px">
+            <label for="subject"
+              >Subject <span style="color: red">*</span></label
+            >
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-control"
+              required
+              minlength="5"
+              maxlength="100"
+              placeholder="How can we help you?"
+              value="{{ request.form.get('subject', '') }}"
+            />
+            <small
+              class="error-msg"
+              id="subjectError"
+              style="
+                color: #ef4444;
+                font-weight: 500;
+                font-size: 0.82rem;
+                margin-top: 4px;
+                display: none;
+              "
+            ></small>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 15px">
+            <label for="message"
+              >Message <span style="color: red">*</span></label
+            >
+            <textarea
+              id="message"
+              name="message"
+              class="form-control"
+              required
+              minlength="10"
+              maxlength="1000"
+              rows="4"
+              placeholder="Write your message here..."
+            >
+{{ request.form.get('message', '') }}</textarea
+            >
+            <small
+              class="error-msg"
+              id="messageError"
+              style="
+                color: #ef4444;
+                font-weight: 500;
+                font-size: 0.82rem;
+                margin-top: 4px;
+                display: none;
+              "
+            ></small>
+          </div>
+          <button
+            type="submit"
+            id="submitBtn"
+            class="btn btn-primary"
+            style="
+              display: block;
+              margin: 0 auto;
+              width: auto;
+              min-width: 180px;
+              padding: 8px 24px;
+              cursor: pointer;
+              background-color: #3b82f6;
+              color: #ffffff;
+              border: none;
+              border-radius: 6px;
+              font-size: 15px;
+              font-weight: 500;
+            "
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT SIDE VALIDATION & AJAX SUBMISSION -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
+    if (!form) return;
+
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const mobileInput = document.getElementById("mobile");
+    const subjectInput = document.getElementById("subject");
+    const messageInput = document.getElementById("message");
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const mobileError = document.getElementById("mobileError");
+    const subjectError = document.getElementById("subjectError");
+    const messageError = document.getElementById("messageError");
+
+    // Input Restrictions
+    nameInput.addEventListener("input", function () {
+      this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+    });
+
+    mobileInput.addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, "");
+    });
+
+    function showError(element, message) {
+      element.textContent = message;
+      element.style.display = "block";
+    }
+
+    function hideError(element) {
+      element.textContent = "";
+      element.style.display = "none";
+    }
+
+    // Client Side Form Validation & AJAX Submission
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // १. JSON पेजवर जाण्यापासून रोखणे
+
+      let isValid = true;
+      [nameError, emailError, mobileError, subjectError, messageError].forEach(
+        hideError,
+      );
+
+      // Validate Name
+      const nameValue = nameInput.value.trim();
+      if (!nameValue) {
+        showError(nameError, "Please enter your full name (letters only).");
+        isValid = false;
+      } else if (nameValue.length < 3) {
+        showError(nameError, "Name must be at least 3 characters long.");
+        isValid = false;
+      }
+
+      // Validate Email
+      const emailValue = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailValue) {
+        showError(emailError, "Please enter your email address.");
+        isValid = false;
+      } else if (!emailRegex.test(emailValue)) {
+        showError(emailError, "Please enter a valid email address.");
+        isValid = false;
+      }
+
+      // Validate Mobile Number
+      const mobileValue = mobileInput.value.trim();
+      if (!mobileValue) {
+        showError(mobileError, "Please enter your mobile number.");
+        isValid = false;
+      } else if (!/^[6-9]\d{9}$/.test(mobileValue)) {
+        showError(
+          mobileError,
+          "Enter exactly 10 digits starting with 6, 7, 8, or 9.",
+        );
+        isValid = false;
+      }
+
+      // Validate Subject
+      const subjectValue = subjectInput.value.trim();
+      if (!subjectValue) {
+        showError(subjectError, "Please enter a subject.");
+        isValid = false;
+      } else if (subjectValue.length < 5) {
+        showError(subjectError, "Subject must be at least 5 characters long.");
+        isValid = false;
+      }
+
+      // Validate Message
+      const messageValue = messageInput.value.trim();
+      if (!messageValue) {
+        showError(messageError, "Please write your message here.");
+        isValid = false;
+      } else if (messageValue.length < 10) {
+        showError(messageError, "Message must be at least 10 characters long.");
+        isValid = false;
+      }
+
+      // जर व्हॅलिडेशन पास झाले, तर AJAX द्वारे फॉर्म सबमिट करा
+      if (isValid) {
+        const formData = new FormData(form);
+
+        fetch("{{ url_for('main.contact') }}", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === "success" || data.success) {
+              Swal.fire({
+                title: "Thank You!",
+                text:
+                  data.message ||
+                  "Your message has been sent successfully. We will get back to you soon!",
+                icon: "success",
+                confirmButtonColor: "#1f5d50",
+                confirmButtonText: "OK",
+              });
+              form.reset(); // फॉर्म क्लियर करणे
+            } else {
+              Swal.fire({
+                title: "Error!",
+                text: data.message || "Something went wrong.",
+                icon: "error",
+                confirmButtonColor: "#ef4444",
+              });
+            }
+          })
+          .catch((error) => {
+            Swal.fire({
+              title: "Error!",
+              text: "Failed to send message. Please try again.",
+              icon: "error",
+              confirmButtonColor: "#ef4444",
+            });
+          });
+      }
+    });
+  });
+</script>
+{% endblock %}
