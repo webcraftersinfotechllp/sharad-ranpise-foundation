@@ -1,8 +1,18 @@
 /* ==========================================================================
-   RESPONSIVE DESIGN & MEDIA QUERIES (responsive.css)
+   SHARAD RANPISE FOUNDATION - RESPONSIVE STYLESHEET (responsive.css)
    ========================================================================== */
 
-/* Large Tablets & Small Laptops (Max-width: 1200px) */
+/* 1. BASE FLUID & LARGE SCREENS (Max-width: 1400px) */
+@media screen and (max-width: 1400px) {
+  .container,
+  .featured-projects-container,
+  .approach-container {
+    max-width: 1140px;
+    padding: 0 2rem;
+  }
+}
+
+/* 2. LARGE TABLETS & SMALL LAPTOPS (Max-width: 1200px) */
 @media (max-width: 1200px) {
   .program-grid,
   .project-grid,
@@ -17,7 +27,29 @@
   }
 }
 
-/* Tablets & Mobile Navigation Trigger (Max-width: 992px) */
+/* 3. LAPTOPS & TABLETS (Max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  /* About & Grid Adjustments */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  .approach-grid,
+  .initiatives-grid,
+  .involve-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+
+  /* Programs Details Grid */
+  .program-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* 4. TABLETS & MOBILE NAVIGATION TRIGGER (Max-width: 992px) */
 @media (max-width: 992px) {
   .nav-toggle {
     display: block;
@@ -88,15 +120,74 @@
   .program-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Donate Page Layout Break */
+  .donate-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  .donate-page-wrapper {
+    padding: 30px 15px !important;
+    height: auto !important;
+  }
 }
 
-/* Mobile Devices (Max-width: 768px) */
-@media (max-width: 768px) {
+/* 5. TABLETS & LARGE MOBILE DEVICES (Max-width: 768px) */
+@media screen and (max-width: 768px) {
+  /* General Containers & Spacing */
   .container {
     padding-left: 20px;
     padding-right: 20px;
   }
 
+  section,
+  .section,
+  .unique-projects-section,
+  .foundation-initiatives-section,
+  .foundation-get-involved {
+    padding: 3rem 1rem !important;
+  }
+
+  /* Navbar Layout: Logo & Name Left, Toggle Right */
+  .navbar,
+  .nav-container,
+  header .container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    padding: 0.5rem 1rem !important;
+  }
+
+  .navbar-brand,
+  .logo-container,
+  .nav-brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-grow: 1 !important;
+    text-align: left !important;
+  }
+
+  .navbar-brand span,
+  .navbar-brand h1,
+  .logo-text {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    max-width: 200px !important;
+    text-align: left !important;
+  }
+
+  .navbar-toggler,
+  .menu-toggle,
+  .hamburger-btn {
+    margin-left: auto !important;
+    display: block !important;
+  }
+
+  /* Hero Section */
   .hero {
     min-height: 560px;
   }
@@ -110,20 +201,197 @@
     padding: 60px 0;
   }
 
-  .footer-bottom-inner {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  .hero-content.left-aligned {
+    text-align: center !important;
+    padding: 0 1rem;
   }
 
+  .hero-content h1 {
+    font-size: 2.2rem !important;
+  }
+
+  .hero-actions {
+    justify-content: center !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1rem;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* Headings & Kickers */
+  .section-title,
+  .title-main {
+    font-size: 1.8rem !important;
+    text-align: center;
+  }
+
+  .section-kicker,
+  .badge-kicker {
+    text-align: center;
+  }
+
+  /* Featured Projects & Split Rows */
+  .split-project-row,
+  .split-project-row.reverse {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .split-image,
+  .split-content {
+    width: 100% !important;
+  }
+
+  .split-image img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+  }
+
+  /* Our Approach & Cards */
+  .approach-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .info-card {
+    padding: 1.5rem !important;
+    text-align: center;
+  }
+
+  /* Grids Stack */
   .trust-grid,
   .program-grid,
   .project-grid,
   .gallery-grid,
   .faq-layout,
   .content-grid,
+  .footer-grid,
+  .impact-grid,
+  .initiatives-grid,
+  .involve-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
   .footer-grid {
-    grid-template-columns: 1fr;
+    gap: 2.5rem !important;
+  }
+
+  /* Directors Container */
+  .directors-container {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Page Hero & Programs Wrapper */
+  .page-hero {
+    padding: 3rem 1rem !important;
+  }
+
+  .page-hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .page-hero p {
+    font-size: 0.95rem !important;
+  }
+
+  .unique-programs-wrapper {
+    padding: 2rem 0 !important;
+  }
+
+  .program-img-box,
+  .program-info-box {
+    width: 100% !important;
+  }
+
+  .program-img-box img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    border-radius: 8px;
+  }
+
+  .program-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+    background: #f9f9f9;
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+
+  .program-action-btn {
+    display: block;
+    width: 100% !important;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* Extended Initiatives Banner */
+  .extended-initiatives-section {
+    padding: 2rem 1rem !important;
+  }
+
+  .extended-box {
+    padding: 1.5rem !important;
+    text-align: center;
+  }
+
+  .extended-box h3 {
+    font-size: 1.5rem !important;
+  }
+
+  .extended-tags-wrap {
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .e-tag {
+    font-size: 0.85rem !important;
+    padding: 6px 12px !important;
+  }
+
+  /* Support Button Responsive */
+  .btn-support-initiative {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.7rem 1rem !important;
+    font-size: 0.9rem !important;
+    text-align: center;
+    display: block;
+  }
+
+  /* Donate Card */
+  .donate-info-side h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .donation-card {
+    padding: 20px !important;
+  }
+
+  /* Footer Bottom & Social Links */
+  .footer-bottom-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .social-links {
+    margin-top: 15px !important;
+    margin-bottom: 30px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
   }
 
   .cta-box {
@@ -133,14 +401,9 @@
   .btn {
     width: 100%;
   }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
 }
 
-/* Small Screens / Phones (Max-width: 576px) */
+/* 6. SMALL MOBILE DEVICES / PHONES (Max-width: 576px) */
 @media (max-width: 576px) {
   .section {
     padding: 72px 0;
@@ -161,4 +424,75 @@
   .nav-donate {
     width: 100%;
   }
+
+  /* Amount buttons grid: 3 buttons per row */
+  .amount-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  /* Personal details rows: stack into 1 column */
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Form footer */
+  .form-footer {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+    text-align: center !important;
+  }
+
+  .form-footer > div {
+    text-align: center !important;
+  }
+
+  .form-footer button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px !important;
+  }
+}
+
+/* 7. EXTRA SMALL PHONES (Max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .section-title,
+  .title-main {
+    font-size: 1.5rem !important;
+  }
+
+  .split-image img,
+  .program-img-box img {
+    height: 200px !important;
+  }
+
+  .program-info-box h3 {
+    font-size: 1.3rem !important;
+  }
+
+  .cta-box h2 {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* ==========================================================
+   GLOBAL UTILITY STYLES (Non-media specific)
+   ========================================================== */
+.btn-support-initiative {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: 280px !important;
+  margin: 0 auto !important;
+  padding: 0.75rem 1.5rem !important;
+  font-size: 0.95rem !important;
+  border-radius: 50px !important;
+  text-decoration: none !important;
 }
